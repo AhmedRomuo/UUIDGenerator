@@ -1,51 +1,48 @@
 ﻿using Newtonsoft.Json.Linq;
-using System.Security.Cryptography;
 using System.Text;
 
 namespace UUIDGenerator.Services
 {
-
     public static class EtaSerializer
     {
         public static string Serialize(JToken token, string parentName = "")
         {
             StringBuilder result = new();
+
             if (token is JObject obj)
             {
                 foreach (var property in obj.Properties())
                 {
+                    // DO NOT serialize UUID
+                    //if (property.Name.Equals("uuid", StringComparison.OrdinalIgnoreCase))
+                    //    continue;
+
                     string name = property.Name.ToUpperInvariant();
                     result.Append($"\"{name}\"");
                     result.Append(Serialize(property.Value, name));
                 }
             }
-            else if (token is JArray array)
+            else if (token is JArray arr)
             {
-                foreach (var item in array)
+                foreach (var item in arr)
                 {
                     result.Append($"\"{parentName}\"");
                     result.Append(Serialize(item, parentName));
                 }
             }
-            else if (token is JValue value)
+            else if (token is JValue val)
             {
-                string strValue = value.Value?.ToString() ?? "";
-                strValue = strValue.Replace("\"", "\\\"");
-                result.Append($"\"{strValue}\"");
+                // VALUE IS EXACT STRING FROM JsonExactLoader
+                string raw = val.Value?.ToString() ?? "";
+                result.Append($"\"{raw}\"");
             }
-            return result.ToString();
-        }
+            else if (token is JToken strToken)
+            {
+                // Strings from LoadJsonExact arrive as JValue
+                result.Append($"\"{strToken.ToString()}\"");
+            }
 
-        public static string ComputeUUID(JObject json)
-        {
-            json["uuid"] = ""; // clear before hashing
-            string serialized = Serialize(json);
-            using SHA256 sha256 = SHA256.Create();
-            byte[] hash = sha256.ComputeHash(Encoding.UTF8.GetBytes(serialized));
-            StringBuilder sb = new();
-            foreach (byte b in hash)
-                sb.Append(b.ToString("x2"));
-            return sb.ToString();
+            return result.ToString();
         }
     }
 }

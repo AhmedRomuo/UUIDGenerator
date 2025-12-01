@@ -1,0 +1,103 @@
+﻿{
+  "header": {
+    "dateTimeIssued": "2025-11-30T20:18:25Z",
+    "receiptNumber": "4000000010404260",
+    "uuid": "",
+    "previousUUID": "",
+    "referenceOldUUID": "",
+    "currency": "EGP",
+    "exchangeRate": 0.0,
+    "sOrderNameCode": "",
+    "orderdeliveryMode": "FC",
+    "grossWeight": 0.0,
+    "netWeight": 0.0
+  },
+  "documentType": {
+    "receiptType": "S",
+    "typeVersion": "1.2"
+  },
+  "seller": {
+    "rin": "474218643",
+    "companyTradeName": "توفير للمواد الغذائيه كازيون",
+    "branchCode": "472",
+    "branchAddress": {
+      "country": "EG",
+      "governate": "giza",
+      "regionCity": "pyramids",
+      "street": "4 ش الأمراء التعاون فيصل الهرم ",
+      "buildingNumber": "4",
+      "postalCode": "",
+      "floor": "",
+      "room": "",
+      "landmark": "",
+      "additionalInformation": ""
+    },
+    "deviceSerialNumber": "56-50502718",
+    "syndicateLicenseNumber": "",
+    "activityCode": "4721"
+  },
+  "buyer": {
+    "type": "P",
+    "id": "",
+    "name": "",
+    "mobileNumber": "",
+    "paymentNumber": ""
+  },
+  "itemData": [
+    {
+      "internalCode": "000000000111000324",
+      "description": "جهينة زبادى طبيعى 105جم",
+      "itemType": "GS1",
+      "itemCode": "6223000351321",
+      "unitType": "EA",
+      "quantity": 1.0,
+      "unitPrice": 10.95,
+      "netSale": 10.95,
+      "totalSale": 10.95,
+      "total": 10.95,
+      "commercialDiscountData": [
+        {
+          "amount": 0.0,
+          "description": "bbb"
+        }
+      ],
+      "itemDiscountData": [
+        {
+          "amount": 0.0,
+          "description": "ttt"
+        }
+      ],
+      "valueDifference": 0.0,
+      "taxableItems": [
+        {
+          "taxType": "T1",
+          "amount": 0.0,
+          "subType": "V009",
+          "rate": 0.0
+        }
+      ]
+    }
+  ],
+  "totalSales": 10.95,
+  "totalCommercialDiscount": 0.0,
+  "totalItemsDiscount": 0.0,
+  "extraReceiptDiscountData": [
+    {
+      "amount": 0.0,
+      "description": "ABC"
+    }
+  ],
+  "netAmount": 10.95,
+  "feesAmount": 0.0,
+  "totalAmount": 10.95,
+  "taxTotals": [
+    {
+      "taxType": "T1",
+      "amount": 0.0
+    }
+  ],
+  "paymentMethod": "C",
+  "adjustment": 0.0,
+  "contractor": {},
+  "beneficiary": {}
+}
